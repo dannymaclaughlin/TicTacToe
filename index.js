@@ -1,11 +1,10 @@
 const gameboard = (function() {
-    const gameboard = [];
+    const gameboard = ['x', 'o', 'x', 'x', 'o', 'x', 'x', 'o', 'x'];
 
     (function initializeGameboard() {
-        for(i=0; i<9; i++) {
-            const boardSpaces = document.createElement('div');
-            boardSpaces.className = 'boardSpaces';
-            document.getElementById('gameboard').appendChild(boardSpaces);
+        for(i = 0; i < gameboard.length; i++) {
+            const cell = document.getElementById(`cell-${i}`);
+            cell.textContent = gameboard[i];
         }
     })();
 
