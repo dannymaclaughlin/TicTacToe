@@ -1,5 +1,5 @@
 const gameboard = (function() {
-    const gameboard = ['x', 'o', 'x', 'x', 'o', 'x', 'x', 'o', 'x'];
+    const gameboard = ['X', 'O', 'X', 'X', 'O', 'X', 'X', 'O', 'X'];
 
     (function initializeGameboard() {
         for(i = 0; i < gameboard.length; i++) {
