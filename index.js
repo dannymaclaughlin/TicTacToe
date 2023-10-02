@@ -1,6 +1,6 @@
 const gameboard = (function() {
     const gameboard = ['X', 'O', 'X', 'X', 'O', 'X', 'X', 'O', 'X'];
-
+    
     (function initializeGameboard() {
         for(i = 0; i < gameboard.length; i++) {
             const cell = document.getElementById(`cell-${i}`);
