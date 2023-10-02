@@ -11,9 +11,6 @@ const gameboard = (function() {
             cells.push(cell);
         };
 
-        // cells.addEventListener('click', () => {
-        //     console.log('hello');
-        // })
         cells.forEach((cell) => {
             cell.addEventListener('click', () => {
                 console.log('hi');
