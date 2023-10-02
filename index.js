@@ -13,7 +13,7 @@ const gameboard = (function() {
 
         cells.forEach((cell) => {
             cell.addEventListener('click', () => {
-                console.log('hi');
+                cell.textContent = 'X';
             });
         });
     };
