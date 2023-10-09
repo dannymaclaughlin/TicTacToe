@@ -13,7 +13,21 @@
     width: fit-content;
 }
 
-.boardSpaces {
+/* .boardSpaces {
+    border: 6px solid black;
+    margin: 0 -6px -6px 0;
+    background-color: lightblue;
+    color: black;
+    height: 3em;
+    width: 3em;
+    font-size: 3em;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+} */
+
+/* for revised code's gameboard spaces */
+#boardspace {
     border: 6px solid black;
     margin: 0 -6px -6px 0;
     background-color: lightblue;
