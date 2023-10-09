@@ -74,8 +74,8 @@ const gameboardObject =  (function () {
             
             let gameboard = document.getElementById('gameboard');
             let spaces = document.createElement('div');
-            spaces.id = 'boardspace';
-            spaces.className = 'boardSpaces';
+            spaces.setAttribute('id', `boardspace-${i}`);
+            spaces.setAttribute('class', 'boardSpaces');
             spaces.textContent = gameboardArray[i];
             gameboard.appendChild(spaces);
         };
