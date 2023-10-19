@@ -1,8 +1,8 @@
 // gameboard object
 const gameboardObject =  (function () {
 	// store the gameboard as an array
-    // let gameboardArray = ['', '', '', '', '', '', '', '', ''];
-	let gameboardArray = ['X', 'O', 'X', 'O', 'X', 'O', 'X', 'O', 'X'];
+    let gameboardArray = ['', '', '', '', '', '', '', '', ''];
+	// let gameboardArray = ['X', 'O', 'X', 'O', 'X', 'O', 'X', 'O', 'X'];
 	
     // variable that represents each individual space on the board
 	// let gameboardSpace = document.getElementById('`cell-${i}`');
@@ -31,13 +31,11 @@ const gameboardObject =  (function () {
     
 	// build functions that allow players to add marks to a specific spot on the board
     // function to select a space on the board
-	function selectSpace() {
-        let space = document.getElementById(`cell-${i}`);
+	function selectSpace(i) {
+        let space = document.getElementById(`boardspace-${i}`);
         space.addEventListener('click', () => {
             alert('burger rulez');
         });
-
-        return { selectSpace };
     };
     
 	function markSpace(player) {
@@ -55,10 +53,8 @@ const gameboardObject =  (function () {
         renderGameboard,
         selectSpace,
     };
-
+    
 })();
-
-// gameboardObject.selectSpace();
 
 // object to store player objects
 const playersObject = {
@@ -80,3 +76,8 @@ const gameController = (function () {
 
 // call function to render gameboard
 gameboardObject.renderGameboard();
+
+// call function to select a space
+for(let i = 0; i < 9; i++) {
+    gameboardObject.selectSpace(i);
+};
