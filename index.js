@@ -34,13 +34,20 @@ const gameboardObject =  (function () {
 	function selectSpace(i) {
         let space = document.getElementById(`boardspace-${i}`);
         space.addEventListener('click', () => {
-            alert('burger rulez');
+            // call on mark space function here?
+            markSpace(space);
         });
+        return {
+            space,
+        };
     };
     
-	function markSpace(player) {
-		// selectSpace();
+	function markSpace(space) {
+		// selectSpace(i);
 		// set the space's innerHTML = to the current player's symbol
+
+        // sets the space's inner text to "X" — will update later to mark the space according to player
+        space.innerText = "X";
 	};
 
 	function checkSpaceValidation() {
