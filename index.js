@@ -1,92 +1,45 @@
 // gameboard object
-// const gameboard = (function() {
-//     // store the gameboard as an array
-//     const gameboard = ['', '', '', '', '', '', '', '', ''];
-//     // const gameboard = ['X', 'O', 'X', 'X', 'O', 'X', 'X', 'O', 'X'];
-
-//     function initializeGameboard() {
-//         const cells = [];
-        
-//         for(let i = 0; i < gameboard.length; i++) {
-//             const cell = document.getElementById(`cell-${i}`);
-//             cell.textContent = gameboard[i];
-//             cells.push(cell);
-//         };
-
-//         cells.forEach((cell) => {
-//             cell.addEventListener('click', () => {
-//                 cell.textContent = 'X';
-//             });
-//         });
-//     };
-    
-//     return {
-//         initializeGameboard,
-//     };
-
-// })();
-
-// gameboard.initializeGameboard();
-
-// const player = (name, symbol) => {
-//     return { name, symbol };
-// };
-
-// let player1 = player('player 1', 'X');
-// let player2 = player('player 2', 'O');
-// const players = [player1, player2];
-
-// const game = {
-//     function playerTurn() {
-//         const turn = 0;
-//         currentPlayer = players[turn];
-//         turn++;
-//     };
-    
-//     return {
-//         playerTurn,
-//     }
-// };
-
-///////////////////////////////////////////////////////////////////////////////////////////
-
-// gameboard object
 const gameboardObject =  (function () {
 	// store the gameboard as an array
+    // let gameboardArray = ['', '', '', '', '', '', '', '', ''];
 	let gameboardArray = ['X', 'O', 'X', 'O', 'X', 'O', 'X', 'O', 'X'];
-	// variable to grab individual spaces
-	let gameboardSpace = document.getElementById('`cell-${i}`');
+	
+    // variable that represents each individual space on the board
+	// let gameboardSpace = document.getElementById('`cell-${i}`');
 
 	// render the contents of the gameboard array on the webpage
 	function renderGameboard() {
 		// create an array to hold gameboard spaces and assign it to variable 'gameboard'
         let spaces = [];
 
-		// create a loop that will loop over gameboard array
-			// for each array item
-				// grab gameboard space id's from the DOM
-				// set gameboard space text.Content to value of it's corresponding cell from gameboardArray
-				// append the newly created divs to spaces array
+		// create a loop that will iterate over each item in the gameboardArray
         for (let i = 0; i < gameboardArray.length; i++) {
-            // let space = document.getElementById(`cell-${i}`);
-            // space.textContent = gameboardArray[i];
-            // spaces.push(space);
-            
+            // grab gameboard id from the DOM and assign it to a variable
             let gameboard = document.getElementById('gameboard');
+            // create a div(space) for each iteration on the gameboardArray and assign it to a variable
             let spaces = document.createElement('div');
+            // assign an ID and a class to the newly created spaces
             spaces.setAttribute('id', `boardspace-${i}`);
             spaces.setAttribute('class', 'boardSpaces');
+            // set gameboard spaces' textContent to the value of it's corresponding item from the gameboardArray
             spaces.textContent = gameboardArray[i];
+            // append the newly created divs to spaces array
             gameboard.appendChild(spaces);
         };
 
 	};
     
 	// build functions that allow players to add marks to a specific spot on the board
+    // function to select a space on the board
 	function selectSpace() {
-		// add a click event listener to gameboardSpace
-	};
+        let space = document.getElementById(`cell-${i}`);
+        space.addEventListener('click', () => {
+            alert('burger rulez');
+        });
 
+        return { selectSpace };
+    };
+    
 	function markSpace(player) {
 		// selectSpace();
 		// set the space's innerHTML = to the current player's symbol
@@ -98,8 +51,14 @@ const gameboardObject =  (function () {
 			// else return — do not mark the space
 	};
 
-    return { renderGameboard }
+    return { 
+        renderGameboard,
+        selectSpace,
+    };
+
 })();
+
+// gameboardObject.selectSpace();
 
 // object to store player objects
 const playersObject = {
@@ -119,4 +78,5 @@ const gameController = (function () {
 	
 })();
 
+// call function to render gameboard
 gameboardObject.renderGameboard();
