@@ -1,9 +1,8 @@
-// gameboard object
+// GAMEBOARD OBJECT
 const gameboardObject =  (function () {
     let gameboardArray = ['', '', '', '', '', '', '', '', ''];
 	// let gameboardArray = ['X', 'O', 'X', 'O', 'X', 'O', 'X', 'O', 'X'];
 
-	// render the contents of the gameboard array on the webpage
 	function renderGameboard() {
         let gameboardSpaces = [];
 
@@ -22,23 +21,24 @@ const gameboardObject =  (function () {
 
         return gameboardSpaces;
 	};
+
+    // renders gameboard & assigns a variable to it for future reference
+    let gameboardSpaces = renderGameboard();
     
-	// build functions that allow players to add marks to a specific spot on the board
-    // function to select a space on the board
-	function selectSpace(i) {
-        let space = document.getElementById(`boardspace-${i}`);
-        
-        for(let i = 0; i < 9; i++) {
+	(function selectSpace() {        
+        // let gameboardSpaces = renderGameboard();
+
+        for (let i = 0; i < gameboardSpaces.length; i++) {
+            let space = gameboardSpaces[i];
             space.addEventListener('click', () => {
                 markSpace(space);
             });
         };
-    
-        
+
         return {
-            space,
-        };
-    };
+            selectSpace,
+        }
+    })();
     
 	function markSpace(space) {
 		// set innerHTML = to the current player's symbol
@@ -59,8 +59,9 @@ const gameboardObject =  (function () {
 
     return { 
         renderGameboard,
-        selectSpace,
+        markSpace,
         clearBoard,
+        // selectSpace,
     };
     
 })();
@@ -80,9 +81,9 @@ const playersObject = {
 };
 
 // GAME FLOW OBJECTS
-const gameController = (function () {
+const gameController = (function () {    
     function newGame() {
-        gameboardObject.clearBoard();
+        gameboardObject.selectSpace();
         gameboardObject.renderGameboard();
     };
 
@@ -92,14 +93,4 @@ const gameController = (function () {
 
 })();
 
-// gameboardObject.renderGameboard();
-gameController.newGame();
-
-
-const selectSpace = (function() {
-    // call function to select a space
-    for(let i = 0; i < 9; i++) {
-        gameboardObject.selectSpace(i);
-    };
-
-})();
+// gameController.newGame();
