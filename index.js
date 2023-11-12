@@ -1,6 +1,6 @@
 // GAMEBOARD OBJECT
 const gameboardObject =  (function () {
-    let gameboardArray = ['', '', '', '', '', '', '', '', ''];
+    let gameboardArray = [' ', 'X', ' ', ' ', ' ', ' ', ' ', ' ', ' '];
 	// let gameboardArray = ['X', 'O', 'X', 'O', 'X', 'O', 'X', 'O', 'X'];
 
 	function renderGameboard() {
@@ -25,13 +25,11 @@ const gameboardObject =  (function () {
     // renders gameboard & assigns a variable to it for future reference
     let gameboardSpaces = renderGameboard();
     
-	(function selectSpace() {        
-        // let gameboardSpaces = renderGameboard();
-
+	(function selectSpace() {
         for (let i = 0; i < gameboardSpaces.length; i++) {
             let space = gameboardSpaces[i];
             space.addEventListener('click', () => {
-                markSpace(space);
+                markSpace(space, i);
             });
         };
 
@@ -40,11 +38,11 @@ const gameboardObject =  (function () {
         }
     })();
     
-	function markSpace(space) {
-		// set innerHTML = to the current player's symbol
+	function markSpace(space, index) {
+		// function that will change the corresponding array(of the cell that was clicked)'s item innerText to an 'X' 
 
         // test: set the space's innerHTML to "X" (will update later to mark the space according to player)
-        space.innerText = 'X';
+        gameboardArray[index] = 'X';
 	};
 
 	function checkSpaceValidation() {
@@ -57,10 +55,16 @@ const gameboardObject =  (function () {
         // space.innerText = 'O';
     };
 
+    function updateBoard() {
+
+    }
+
     return { 
+        gameboardArray,
         renderGameboard,
         markSpace,
         clearBoard,
+        updateBoard,
         // selectSpace,
     };
     
@@ -83,14 +87,11 @@ const playersObject = {
 // GAME FLOW OBJECTS
 const gameController = (function () {    
     function newGame() {
-        gameboardObject.selectSpace();
         gameboardObject.renderGameboard();
+        gameboardObject.selectSpace();
     };
 
     return {
         newGame,
     }
-
 })();
-
-// gameController.newGame();
