@@ -1,10 +1,13 @@
 // GAMEBOARD OBJECT
 const gameboardObject =  (function () {
-    let gameboardArray = [' ', 'X', ' ', ' ', ' ', ' ', ' ', ' ', ' '];
-	// let gameboardArray = ['X', 'O', 'X', 'O', 'X', 'O', 'X', 'O', 'X'];
+    let gameboardArray = ['', '', '', '', '', '', '', '', ''];
+    let gameboardSpaces = [];
 
 	function renderGameboard() {
-        let gameboardSpaces = [];
+        let gameboard = document.getElementById('gameboard');
+        
+        gameboard.innerHTML = '';
+        gameboardSpaces = [];
 
 		// create a loop that will iterate over each item in the gameboardArray
         for (let i = 0; i < gameboardArray.length; i++) {
@@ -19,30 +22,31 @@ const gameboardObject =  (function () {
             gameboardSpaces.push(space);
         };
 
+        selectSpace();
+        
         return gameboardSpaces;
 	};
 
-    // renders gameboard & assigns a variable to it for future reference
-    let gameboardSpaces = renderGameboard();
+    // renders gameboard & assigns it to a variable for future use
+    gameboardSpaces = renderGameboard();
     
-	(function selectSpace() {
+	function selectSpace() {
         for (let i = 0; i < gameboardSpaces.length; i++) {
             let space = gameboardSpaces[i];
+
             space.addEventListener('click', () => {
                 markSpace(space, i);
             });
         };
 
-        return {
-            selectSpace,
-        }
-    })();
+    };
+
+    selectSpace();
     
 	function markSpace(space, index) {
-		// function that will change the corresponding array(of the cell that was clicked)'s item innerText to an 'X' 
-
-        // test: set the space's innerHTML to "X" (will update later to mark the space according to player)
         gameboardArray[index] = 'X';
+        // renderGameboard();
+        selectSpace();
 	};
 
 	function checkSpaceValidation() {
@@ -52,7 +56,7 @@ const gameboardObject =  (function () {
 	};
 
     function clearBoard(space) {
-        // space.innerText = 'O';
+        
     };
 
     function updateBoard() {
@@ -65,7 +69,7 @@ const gameboardObject =  (function () {
         markSpace,
         clearBoard,
         updateBoard,
-        // selectSpace,
+        selectSpace,
     };
     
 })();
@@ -85,13 +89,13 @@ const playersObject = {
 };
 
 // GAME FLOW OBJECTS
-const gameController = (function () {    
-    function newGame() {
-        gameboardObject.renderGameboard();
-        gameboardObject.selectSpace();
-    };
+// const gameController = (function () {    
+//     function newGame() {
+//         gameboardObject.renderGameboard();
+//         gameboardObject.selectSpace();
+//     };
 
-    return {
-        newGame,
-    }
-})();
+//     return {
+//         newGame,
+//     }
+// })();
