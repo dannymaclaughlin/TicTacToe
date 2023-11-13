@@ -47,6 +47,7 @@ const gameboardObject =  (function () {
         gameboardArray[index] = 'X';
         renderGameboard();
         selectSpace();
+        console.log(gameboardObject.gameboardArray);
 	};
 
 	function checkSpaceValidation() {
