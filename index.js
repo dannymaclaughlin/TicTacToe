@@ -1,7 +1,7 @@
 // GAMEBOARD OBJECT
 const gameboardObject =  (function () {
     let gameboardArray = ['', '', '', '', '', '', '', '', ''];
-    let gameboardSpaces = [];
+    // let gameboardSpaces = [];
 
 	function renderGameboard() {
         let gameboard = document.getElementById('gameboard');
@@ -45,7 +45,7 @@ const gameboardObject =  (function () {
     
 	function markSpace(space, index) {
         gameboardArray[index] = 'X';
-        // renderGameboard();
+        renderGameboard();
         selectSpace();
 	};
 
