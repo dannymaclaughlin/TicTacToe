@@ -67,27 +67,19 @@ const gameboardObject = (function () {
 })();
 
 // PLAYER OBJECTS
-const playersObject = {
+const playerObjects = {
 	player1: {
-		// player 1 name:
-		// player 1 symbol:
+		name: 'Player 1',
+		symbol: 'X',
 	},
 
 	player2: {
-		// player 2 name:
-		// player 2 symbol:
-	}
-    
+        name: 'Player 2',
+        symbol: 'O',
+	},
 };
 
 // GAME FLOW OBJECTS
-// const gameController = (function () {    
-//     function newGame() {
-//         gameboardObject.renderGameboard();
-//         gameboardObject.selectSpace();
-//     };
+// const gameController = (function (
 
-//     return {
-//         newGame,
-//     }
-// })();
+// ))();
