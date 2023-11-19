@@ -1,17 +1,15 @@
 // GAMEBOARD OBJECT
-const gameboardObject =  (function () {
+const gameboardObject = (function () {
     let gameboardArray = ['', '', '', '', '', '', '', '', ''];
     // let gameboardSpaces = [];
 
 	function renderGameboard() {
         let gameboard = document.getElementById('gameboard');
-        
         gameboard.innerHTML = '';
         gameboardSpaces = [];
 
 		// create a loop that will iterate over each item in the gameboardArray
         for (let i = 0; i < gameboardArray.length; i++) {
-            let gameboard = document.getElementById('gameboard');
             let space = document.createElement('div');
 
             space.setAttribute('id', `boardspace-${i}`);
@@ -23,7 +21,6 @@ const gameboardObject =  (function () {
         };
 
         selectSpace();
-        
         return gameboardSpaces;
 	};
 
@@ -38,9 +35,8 @@ const gameboardObject =  (function () {
                 markSpace(space, i);
             });
         };
-
     };
-
+    
     selectSpace();
     
 	function markSpace(space, index) {
@@ -56,10 +52,6 @@ const gameboardObject =  (function () {
 			// else return — do not mark the space
 	};
 
-    function clearBoard(space) {
-        
-    };
-
     function updateBoard() {
 
     }
@@ -68,7 +60,6 @@ const gameboardObject =  (function () {
         gameboardArray,
         renderGameboard,
         markSpace,
-        clearBoard,
         updateBoard,
         selectSpace,
     };
