@@ -1,7 +1,6 @@
 // GAMEBOARD OBJECT
 const gameboardObject = (function () {
     let gameboardArray = ['', '', '', '', '', '', '', '', ''];
-    // let gameboardSpaces = [];
 
 	function renderGameboard() {
         let gameboard = document.getElementById('gameboard');
@@ -80,6 +79,6 @@ const playerObjects = {
 };
 
 // GAME FLOW OBJECTS
-// const gameController = (function (
+const gameController = (function () {
 
-// ))();
+})();
