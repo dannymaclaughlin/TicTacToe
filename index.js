@@ -34,17 +34,19 @@ function cell() {
     };
 };
 
-const players = {
-    player1: {
-        name: 'Player 1',
-        symbol: 'X'
-    },
-    player2: {
-        name: 'Player 2',
-        symbol: 'O'
-    }
-};
-
 const gameController = (function () {
+    const players = {
+        player1: {
+            name: 'Player 1',
+            symbol: 'X'
+        },
+        player2: {
+            name: 'Player 2',
+            symbol: 'O'
+        }
+    };
 
+    return {
+        players,
+    }
 })();
