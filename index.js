@@ -1,13 +1,26 @@
 const gameboard = (function () {
-    const board = ['', '', '', '', '', '', '', '', ''];
+    const board = [
+        [cell(), cell(), cell()],
+        [cell(), cell(), cell()],
+        [cell(), cell(), cell()]
+    ];
 
-    for (let i = 0; i < board.length; i++) {
-        board[i] = [];
+    const getBoard = () => board;
+
+    const printBoard = () => {
+        const boardWithCellValues = board.map((row) => row.map((cell) => cell.getValue()))
+
+        console.log(boardWithCellValues);
+    }
+
+    return { 
+        getBoard,
+        printBoard, 
     };
 })();
 
 function cell() {
-    let value = '';
+    let value = '0';
 
     const addMark = (player) => {
         value = player;
