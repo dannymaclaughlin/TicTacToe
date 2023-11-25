@@ -34,19 +34,40 @@ function cell() {
     };
 };
 
-const gameController = (function () {
-    const players = {
-        player1: {
-            name: 'Player 1',
-            symbol: 'X'
-        },
-        player2: {
-            name: 'Player 2',
-            symbol: 'O'
-        }
+const players = (function () {
+    function createPlayer (name, symbol) {
+        const playerName = name;
+        const playerSymbol = symbol;
+        return {
+            name,
+            symbol,
+        };
     };
 
+    const player1 = createPlayer('player 1', 'X');
+    const player2 = createPlayer('player 2', 'O');
+
     return {
-        players,
-    }
+        player1,
+        player2,
+    };
+})();
+
+
+
+// const players = function (name, symbol) {
+//     const players = {
+//         player1: {
+//             name: 'Player 1',
+//             symbol: 'X'
+//         },
+//         player2: {
+//             name: 'Player 2',
+//             symbol: 'O'
+//         }
+//     };
+// }
+
+const gameController = (function () {
+
 })();
