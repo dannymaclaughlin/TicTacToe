@@ -24,7 +24,13 @@ const gameboard = (function () {
     const getBoard = () => board;
 
     const printBoard = () => {
-        const boardWithCellValues = board.map((row) => row.map((cell) => cell.getValue()))
+        // const boardWithCellValues = board.map((row) => row.map((cell) => cell.getValue()))
+        const boardWithCellValues = board.map((row) => {
+            return row.map((cell) => {
+                return cell.getValue();
+            });
+        });
+        
 
         console.log(boardWithCellValues);
     }
