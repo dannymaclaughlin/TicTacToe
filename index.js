@@ -63,5 +63,20 @@ const players = (function () {
 
 // GAMECONTROLLER OBJECT
 const gameController = (function () {
+    function getUserMove() {
+        const row = prompt('SELECT ROW (1, 2, or 3)');
+        const col = prompt('SELECT COLUMN (1, 2, or 3)');
 
+        const rowIndex = parseInt(row) - 1;
+        const colIndex = parseInt(col) -1;
+
+        return {
+            rowIndex,
+            colIndex,
+        }
+    }
+
+    return {
+        getUserMove,
+    }
 })();
