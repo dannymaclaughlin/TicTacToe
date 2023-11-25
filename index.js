@@ -1,9 +1,25 @@
+// GAMEBOARD OBJECT
 const gameboard = (function () {
     const board = [
         [cell(), cell(), cell()],
         [cell(), cell(), cell()],
         [cell(), cell(), cell()]
     ];
+
+    function cell() {
+        let value = '0';
+    
+        const addMark = (player) => {
+            value = player;
+        };
+    
+        const getValue = () => value;
+    
+        return {
+            addMark,
+            getValue,
+        };
+    };
 
     const getBoard = () => board;
 
@@ -19,21 +35,7 @@ const gameboard = (function () {
     };
 })();
 
-function cell() {
-    let value = '0';
-
-    const addMark = (player) => {
-        value = player;
-    };
-
-    const getValue = () => value;
-
-    return {
-        addMark,
-        getValue,
-    };
-};
-
+// PLAYERS OBJECT
 const players = (function () {
     function createPlayer (name, symbol) {
         const playerName = name;
@@ -53,21 +55,7 @@ const players = (function () {
     };
 })();
 
-
-
-// const players = function (name, symbol) {
-//     const players = {
-//         player1: {
-//             name: 'Player 1',
-//             symbol: 'X'
-//         },
-//         player2: {
-//             name: 'Player 2',
-//             symbol: 'O'
-//         }
-//     };
-// }
-
+// GAMECONTROLLER OBJECT
 const gameController = (function () {
 
 })();
