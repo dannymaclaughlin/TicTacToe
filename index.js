@@ -1,13 +1,15 @@
 // GAMEBOARD OBJECT
 const gameboard = (function () {
+    // a nested array(array of arrays) containing cells that make up a 2d gameboard
     const board = [
         [cell(), cell(), cell()],
         [cell(), cell(), cell()],
         [cell(), cell(), cell()]
     ];
 
+    // constructor function that creates and returns an object with the addMark and getValue methods
     function cell() {
-        let value = '0';
+        let value = '';
     
         const addMark = (player) => {
             value = player;
