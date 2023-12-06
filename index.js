@@ -23,8 +23,10 @@ const gameboard = (function () {
         };
     };
 
+    // returns the gameboard and assigns it to the getBoard variable
     const getBoard = () => board;
 
+    // logs to the console the returned value of each cell on the board
     const printBoard = () => {
         // const boardWithCellValues = board.map((row) => row.map((cell) => cell.getValue()))
         const boardWithCellValues = board.map((row) => {
@@ -44,6 +46,7 @@ const gameboard = (function () {
 })();
 
 // PLAYERS OBJECT
+// IIFE factory function that creates player objects with name and symbol parameters.
 const players = (function () {
     function createPlayer (name, symbol) {
         const playerName = name;
@@ -54,6 +57,7 @@ const players = (function () {
         };
     };
 
+    // creates two player objects using the factory function
     const player1 = createPlayer('player 1', 'X');
     const player2 = createPlayer('player 2', 'O');
 
@@ -65,12 +69,14 @@ const players = (function () {
 
 // GAMECONTROLLER OBJECT
 const gameController = (function () {
+    // function that prompts the user to select a row and column, assigns the user inputted value to the 
+    // 'row' and 'col' variables, converts the string into a number and subtracts 1(as to align with zero based indexing)
     function getUserMove() {
         const row = prompt('SELECT ROW (1, 2, or 3)');
         const col = prompt('SELECT COLUMN (1, 2, or 3)');
 
         const rowIndex = parseInt(row) - 1;
-        const colIndex = parseInt(col) -1;
+        const colIndex = parseInt(col) - 1;
 
         return {
             rowIndex,
