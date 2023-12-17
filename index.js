@@ -84,7 +84,18 @@ const gameController = (function () {
         }
     }
 
+    // function/method to decide and switch player turns
+
+    // method to start a new game
+    function startGame() {
+        gameboard.printBoard();
+    }
+
     return {
         getUserMove,
+        startGame
     }
 })();
+
+// initialize game
+gameController.startGame();
