@@ -49,8 +49,8 @@ const gameboard = (function () {
 // IIFE factory function that creates player objects with name and symbol parameters.
 const players = (function () {
     function createPlayer (name, symbol) {
-        const playerName = name;
-        const playerSymbol = symbol;
+        // const playerName = name;
+        // const playerSymbol = symbol;
         return {
             name,
             symbol,
@@ -84,16 +84,38 @@ const gameController = (function () {
         }
     }
 
-    // function/method to decide and switch player turns
+    // sets player1 as the default first player
+    let activePlayer = players.player1;
+    
+    // function to switch player turn
+    function switchPlayerTurn() {
+        activePlayer = activePlayer === players.player1 ? players.player2 : players.player1;
+    }
+
+    function getActivePlayer() {
+        return activePlayer;
+    }
+
+    function printNewRound() {
+        gameboard.printBoard();
+        console.log(`${getActivePlayer().name}'s turn. select a space by entering 'gameController.getUserMove()'!`);
+    }
 
     // method to start a new game
     function startGame() {
-        gameboard.printBoard();
+        // prints gameboard to the console
+        printNewRound();
+
+        // decide initial player's turn
+
+        // ask for that player's input
     }
 
     return {
         getUserMove,
-        startGame
+        startGame,
+        activePlayer,
+
     }
 })();
 
