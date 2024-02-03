@@ -1,7 +1,21 @@
 // GAMEBOARD OBJECT
 const gameboard = (function () {
-    // a nested array(array of arrays) containing cells that make up a 2d gameboard
     const board = ['', '', '', '', '', '', '', '', ''];
+
+    const boardspaces = document.querySelectorAll('.boardspace');
+
+    boardspaces.forEach((space, index) => {
+        board[index] = space;
+        
+        space.addEventListener('click', () => {
+            console.log(`clicked on boardspace${index + 1}`);
+            space.innerHTML = 'X'
+            
+            // use these to target specific spaces
+                // console.log(space);
+                // console.log(board[2]);
+        })
+    })
 })();
 
 // PLAYERS OBJECT
