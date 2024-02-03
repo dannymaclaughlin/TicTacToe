@@ -6,39 +6,7 @@
     font-family: helvetica, sans-serif;
 }
 
-#gameboard {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
-    /* border: 3px solid red; */
-}
 
-.boardSpaces {
-    border: 6px solid black;
-    margin: 0 -6px -6px 0;
-    background-color: lightblue;
-    color: black;
-    height: 3em;
-    width: 3em;
-    font-size: 3em;
-    display: grid;
-    justify-content: center;
-    align-items: center;
-}
-
-/* for revised code's gameboard spaces */
-/* #boardspace {
-    border: 6px solid black;
-    margin: 0 -6px -6px 0;
-    background-color: lightblue;
-    color: black;
-    height: 3em;
-    width: 3em;
-    font-size: 3em;
-    display: grid;
-    justify-content: center;
-    align-items: center;
-} */
 
 .mainContent {
     height: 100vh;
@@ -51,13 +19,41 @@
     /* border: 2px solid red; */
 }
 
-
-
-h1 {
-    display: flex;
-    justify-content: center;
+#gameboard {
+    /* border: 2px solid red; */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: fit-content;
     height: fit-content;
-    
-    /* border: 3px solid red; */
-    font-size: 4.5em;
+}
+
+.boardspace {
+    height: 100px;
+    width: 100px;
+    background-color: lightgray;
+    border: 3px solid black;
+}
+
+#boardspace1,
+#boardspace2,
+#boardspace3 {
+    border-top: none;
+}
+
+#boardspace3,
+#boardspace6,
+#boardspace9 {
+    border-right: none;
+}
+
+#boardspace1,
+#boardspace4,
+#boardspace7 {
+    border-left: none;
+}
+
+#boardspace7,
+#boardspace8,
+#boardspace9 {
+    border-bottom: none;
 }
