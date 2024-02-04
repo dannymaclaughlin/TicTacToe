@@ -5,13 +5,20 @@ const gameboard = (function () {
 
     //  Return the board to make it accessible outside of the IIFE
     return {
+        board,
+        // Returns corresponding board array item
         getSpace(index) {
             return board[index];
-            console.log(board[index]);
         },
+        // Assigns symbol to corresponding board array item of the index
         setSpace(index, symbol) {
             // [to-do] validate move and update board if valid
+                // Test: Log current board state
+                // console.log("Board before:", gameboard.board);
+            // Update board
             board[index] = symbol;
+                // Test: Log updated board state
+                // console.log("Board after:", gameboard.board);
         }
     }
 })();
