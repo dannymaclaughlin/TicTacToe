@@ -18,6 +18,13 @@ const player1 = createPlayer('Player 1', 'X');
 const player2 = createPlayer('Player 2', 'O');
 
 // GAMECONTROLLER - OBJECT TO CONTROL THE FLOW OF THE GAME
-function Gamecontroller() {
+function createGameController() {
+    function startGame() {
+        console.log(Gameboard.board);
+    }
 
+    return { startGame };
 };
+
+const gamecontroller = createGameController();
+gamecontroller.startGame();
