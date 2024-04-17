@@ -23,6 +23,30 @@ function createGameController() {
         console.log(Gameboard.board);
     }
 
+    function selectSpace() {
+        // logic to select a space
+    }
+
+    function isSpaceEmpty() {
+        // logic to verify if space is occupied
+    }
+
+    function markSpace() {
+        // logic to mark space
+    }
+
+    function checkForWinner() {
+        // logic to check if there is a winner
+    }
+
+    function checkForTie() {
+        // logic to check for a game ending in a tie
+    }
+
+    function endGame() {
+        // logic to end a game
+    }
+
     return { startGame };
 };
 
