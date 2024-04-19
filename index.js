@@ -7,8 +7,7 @@ const Gameboard = (function () {
     ];
 
     function getBoard() {
-        let board = Gameboard.board;
-        return { board }
+        return Gameboard.board;
     }
 
     return { board, getBoard }
