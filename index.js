@@ -1,9 +1,9 @@
 // GAMEBOARD OBJECT - DIRECTLY RELATED TO THE BOARD
 const Gameboard = (function () {
     const board = [
-        '', '', '', 
-        '', '', '', 
-        '', '', '',
+        ['', '', ''],
+        ['', '', ''],
+        ['', '', ''],
     ];
 
     return { board }
@@ -20,6 +20,8 @@ const player2 = createPlayer('Player 2', 'O');
 // GAMECONTROLLER - OBJECT TO CONTROL THE FLOW OF THE GAME
 function createGameController() {
     function startGame() {
+        console.log('Starting a new game of Tic Tac Toe...')
+        console.log('Player 1, select a space.')
         console.log(Gameboard.board);
     }
 
