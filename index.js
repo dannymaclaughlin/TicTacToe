@@ -6,7 +6,12 @@ const Gameboard = (function () {
         ['', '', ''],
     ];
 
-    return { board }
+    function getBoard() {
+        let board = Gameboard.board;
+        return { board }
+    }
+
+    return { board, getBoard }
 })();
 
 // PLAYER OBJECTS
@@ -19,15 +24,10 @@ const player2 = createPlayer('Player 2', 'O');
 
 // GAMECONTROLLER - OBJECT TO CONTROL THE FLOW OF THE GAME
 function createGameController() {
-    function getBoard() {
-        let board = Gameboard.board;
-        return { board }
-    }
-    
     function startGame() {
         console.log('Starting a new game of Tic Tac Toe...')
         console.log('Player 1, select a space.')
-        console.log(getBoard().board);
+        console.log(Gameboard.getBoard());
     }
 
     function selectSpace() {
@@ -54,7 +54,7 @@ function createGameController() {
         // logic to end a game
     }
 
-    return { startGame, getBoard };
+    return { startGame };
 };
 
 const gamecontroller = createGameController();
