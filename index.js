@@ -13,16 +13,19 @@ const Gameboard = (function () {
     return { board, getBoard }
 })();
 
-// PLAYER OBJECTS
-function createPlayer (username, symbol) {
-    return { username, symbol }
-};
-
-const player1 = createPlayer('Player 1', 'X');
-const player2 = createPlayer('Player 2', 'O');
-
 // GAMECONTROLLER - OBJECT TO CONTROL THE FLOW OF THE GAME
 function GameController() {
+    const players = [
+        {
+            name: 'Player 1',
+            symbol: 'X'
+        },
+        {
+            name: 'Player 2',
+            symbol: 'O'
+        }
+    ];
+    
     function startGame() {
         console.log('Starting a new game of Tic Tac Toe...')
         console.log('Player 1, select a space.')
