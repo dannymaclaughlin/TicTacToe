@@ -37,13 +37,13 @@ function GameController() {
     }
 
     function getPlayer() {
+        // console.log(activePlayer);
         return activePlayer;
-        console.log(activePlayer);
     }
     
     function startGame() {
         console.log('Starting a new game of Tic Tac Toe...')
-        console.log('Player 1, select a space.')
+        console.log(`${activePlayer.name}, select a space.`)
         console.log(Gameboard.getBoard());
     }
 
@@ -71,7 +71,7 @@ function GameController() {
         // logic to end a game
     }
 
-    return { startGame, activePlayer, getPlayer };
+    return { startGame, activePlayer, getPlayer, switchPlayerTurn };
 };
 
 const gamecontroller = GameController();
