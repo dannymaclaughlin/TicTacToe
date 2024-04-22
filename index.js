@@ -26,19 +26,21 @@ function GameController() {
         }
     ];
 
+    // sets beginning/first active player to player 1
     let activePlayer = players[0];
 
+    // returns current active player
+    function getPlayer() {
+        return activePlayer;
+    }
+
+    // switches active player
     function switchPlayerTurn() {
         if (activePlayer === players[0]) {
             activePlayer = players[1];
         } else {
             activePlayer = players[0];
         }
-    }
-
-    function getPlayer() {
-        // console.log(activePlayer);
-        return activePlayer;
     }
     
     function startGame() {
