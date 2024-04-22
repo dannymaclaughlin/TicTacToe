@@ -10,7 +10,11 @@ const Gameboard = (function () {
         return board;
     }
 
-    return { getBoard }
+    function setSpace(row, column, symbol) {
+        board[row][column] = symbol;
+    }
+
+    return { getBoard, setSpace }
 })();
 
 // GAMECONTROLLER - OBJECT TO CONTROL THE FLOW OF THE GAME
@@ -49,8 +53,9 @@ const GameController = (function () {
         console.log(Gameboard.getBoard());
     }
 
-    function selectSpace() {
+    function selectSpace(row, column) {
         // logic to select a space
+        
     }
 
     function isSpaceEmpty() {
