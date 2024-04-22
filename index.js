@@ -25,6 +25,21 @@ function GameController() {
             symbol: 'O'
         }
     ];
+
+    let activePlayer = players[0];
+
+    function switchPlayerTurn() {
+        if (activePlayer === players[0]) {
+            activePlayer = players[1];
+        } else {
+            activePlayer = players[0];
+        }
+    }
+
+    function getPlayer() {
+        return activePlayer;
+        console.log(activePlayer);
+    }
     
     function startGame() {
         console.log('Starting a new game of Tic Tac Toe...')
@@ -56,7 +71,7 @@ function GameController() {
         // logic to end a game
     }
 
-    return { startGame };
+    return { startGame, activePlayer, getPlayer };
 };
 
 const gamecontroller = GameController();
