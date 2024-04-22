@@ -7,14 +7,14 @@ const Gameboard = (function () {
     ];
 
     function getBoard() {
-        return Gameboard.board;
+        return board;
     }
 
-    return { board, getBoard }
+    return { getBoard }
 })();
 
 // GAMECONTROLLER - OBJECT TO CONTROL THE FLOW OF THE GAME
-function GameController() {
+const GameController = (function () {
     const players = [
         {
             name: 'Player 1',
@@ -74,7 +74,6 @@ function GameController() {
     }
 
     return { startGame, activePlayer, getPlayer, switchPlayerTurn };
-};
+})();
 
-const gamecontroller = GameController();
-gamecontroller.startGame();
+GameController.startGame();
