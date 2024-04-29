@@ -59,9 +59,10 @@ const GameController = (function () {
     }
 
     function selectSpace(row, column) {
-        // logic to select a space
+        // runs function to check if the space is empty
         isSpaceEmpty(row, column);
-
+        
+        // logic to select a space
         const symbol = activePlayer.symbol;
         if (Gameboard.setSpace(row, column, symbol)) {
             console.log(`${activePlayer.name} has selected space (${row}, ${column})`);
@@ -74,10 +75,13 @@ const GameController = (function () {
     }
 
     function isSpaceEmpty(row, column) {
-        // logic to verify if space is occupied
+        // logic to verify if space on the board is occupied 
         if (Gameboard.getBoard()[row][column] !== '') {
+            // message displayed if the space is not empty
             console.log('Selected space is already occupied. Please select another space.')
-            return;
+            return false;
+        } else {
+            return true;
         }
     }
 
