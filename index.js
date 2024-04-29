@@ -59,6 +59,10 @@ const GameController = (function () {
     }
 
     function selectSpace(row, column) {
+        // changes from 0-indexed to 1-indexed for user input
+        row = row - 1;
+        column = column - 1;
+        
         // runs function to check if the space is empty
         isSpaceEmpty(row, column);
         
