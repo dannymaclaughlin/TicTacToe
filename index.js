@@ -132,6 +132,7 @@ const GameController = (function () {
             Gameboard.getBoard()[1][1] === 'X' &&
             Gameboard.getBoard()[2][0] === 'X'
             ||
+            
             // win conditions for 'O'
             Gameboard.getBoard()[0][0] === 'O' &&
             Gameboard.getBoard()[0][1] === 'O' &&
@@ -165,7 +166,7 @@ const GameController = (function () {
             Gameboard.getBoard()[1][1] === 'O' &&
             Gameboard.getBoard()[2][0] === 'O'
             ) {
-            console.log(`WINNER! ${activePlayer.symbol} has won!`);
+            console.log(`WINNER! ${activePlayer.name} has won!`);
         } else {
             return;
         }
