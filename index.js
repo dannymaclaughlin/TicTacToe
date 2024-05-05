@@ -44,9 +44,11 @@ const GameController = (function () {
         if (activePlayer === players[0]) {
             activePlayer = players[1];
             console.log(`${activePlayer.name}, select a space.`);
+            console.log(Gameboard.getBoard());
         } else {
             activePlayer = players[0];
             console.log(`${activePlayer.name}, select a space.`);
+            console.log(Gameboard.getBoard());
         }
     }
     
