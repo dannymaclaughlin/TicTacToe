@@ -24,6 +24,7 @@ const Gameboard = (function () {
 
 // GAMECONTROLLER - OBJECT TO CONTROL THE FLOW OF THE GAME
 const GameController = (function () {
+    // player objects
     const players = [
         {
             name: 'Player 1',
@@ -35,27 +36,40 @@ const GameController = (function () {
         }
     ];
 
-    // sets beginning/first active player to player 1
+    // sets the beginning/first active player to player 1
     let activePlayer = players[0];
-
+    
+    // switches active player
+    function switchPlayerTurn() {
+        if (activePlayer === players[0]) {
+            activePlayer = players[1];
+            console.log(`${activePlayer}, select a space.`);
+        } else {
+            activePlayer = players[0];
+            console.log(`${activePlayer}, select a space.`);
+        }
+    }
+    
     // returns current active player
     function getPlayer() {
         return activePlayer;
     }
 
-    // switches active player
-    function switchPlayerTurn() {
-        if (activePlayer === players[0]) {
-            activePlayer = players[1];
-        } else {
-            activePlayer = players[0];
-        }
-    }
-    
     function startGame() {
         console.log('Starting a new game of Tic Tac Toe...')
         console.log(`${activePlayer.name}, select a space.`)
         console.log(Gameboard.getBoard());
+    }
+
+    // function to check if space is empty
+    function isSpaceEmpty(row, column) {
+        if (Gameboard.getBoard()[row][column] !== '') {
+            // display this message if the space is occupied
+            console.log('Selected space is already occupied. Please select another space.')
+            return false;
+        } else {
+            return true;
+        }
     }
 
     function selectSpace(row, column) {
@@ -64,11 +78,14 @@ const GameController = (function () {
         column = column - 1;
         
         // runs function to check if the space is empty
+            // if empty, it will return true
+            // if occupied, it will return false
         isSpaceEmpty(row, column);
         
-        // logic to select a space
+        // if returned true, it runs the if block
+        // if returned false, it runs the else block
         const symbol = activePlayer.symbol;
-        if (Gameboard.setSpace(row, column, symbol)) {
+        if ( Gameboard.setSpace(row, column, symbol) ) {
             console.log(`${activePlayer.name} has selected space (${row}, ${column})`);
             switchPlayerTurn();
             checkForTie();
@@ -78,16 +95,7 @@ const GameController = (function () {
         }
     }
 
-    function isSpaceEmpty(row, column) {
-        // logic to verify if space on the board is occupied 
-        if (Gameboard.getBoard()[row][column] !== '') {
-            // message displayed if the space is not empty
-            console.log('Selected space is already occupied. Please select another space.')
-            return false;
-        } else {
-            return true;
-        }
-    }
+
 
     function markSpace() {
         // logic to mark space
