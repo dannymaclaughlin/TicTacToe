@@ -10,8 +10,8 @@ const Gameboard = (function () {
         return board;
     }
 
-    function setSpace(row, column, symbol) {
-        if (board[row][column] === '') {
+    function markSpace(row, column, symbol) {
+        if ( board[row][column] === '' ) {
             board[row][column] = symbol;
             return true; // space was successfully marked
         } else {
@@ -19,7 +19,7 @@ const Gameboard = (function () {
         }
     }
 
-    return { getBoard, setSpace }
+    return { getBoard, markSpace }
 })();
 
 // GAMECONTROLLER - OBJECT TO CONTROL THE FLOW OF THE GAME
@@ -82,10 +82,9 @@ const GameController = (function () {
             // if occupied, it will return false
         isSpaceEmpty(row, column);
         
-        // if returned true, it runs the if block
-        // if returned false, it runs the else block
         const symbol = activePlayer.symbol;
-        if ( Gameboard.setSpace(row, column, symbol) ) {
+
+        if ( Gameboard.markSpace(row, column, symbol) ) {
             console.log(`${activePlayer.name} has selected space (${row}, ${column})`);
             switchPlayerTurn();
             checkForTie();
@@ -93,12 +92,6 @@ const GameController = (function () {
         } else {
             console.log('Invalid move. Please select another space.')
         }
-    }
-
-
-
-    function markSpace() {
-        // logic to mark space
     }
 
     function checkForWinner() {
