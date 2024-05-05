@@ -43,10 +43,10 @@ const GameController = (function () {
     function switchPlayerTurn() {
         if (activePlayer === players[0]) {
             activePlayer = players[1];
-            console.log(`${activePlayer}, select a space.`);
+            console.log(`${activePlayer.name}, select a space.`);
         } else {
             activePlayer = players[0];
-            console.log(`${activePlayer}, select a space.`);
+            console.log(`${activePlayer.name}, select a space.`);
         }
     }
     
