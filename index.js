@@ -88,9 +88,9 @@ const GameController = (function () {
 
         if ( Gameboard.markSpace(row, column, symbol) ) {
             console.log(`${activePlayer.name} has selected space (${row}, ${column})`);
-            switchPlayerTurn();
-            checkForTie();
             checkForWinner();
+            checkForTie();
+            switchPlayerTurn();
         } else {
             console.log('Invalid move. Please select another space.')
         }
@@ -98,6 +98,78 @@ const GameController = (function () {
 
     function checkForWinner() {
         // logic to check if there is a winner
+        if (
+            // win conditions for 'X'
+            Gameboard.getBoard()[0][0] === 'X' &&
+            Gameboard.getBoard()[0][1] === 'X' &&
+            Gameboard.getBoard()[0][2] === 'X'
+            ||
+            Gameboard.getBoard()[1][0] === 'X' &&
+            Gameboard.getBoard()[1][1] === 'X' &&
+            Gameboard.getBoard()[1][2] === 'X'
+            ||
+            Gameboard.getBoard()[2][0] === 'X' &&
+            Gameboard.getBoard()[2][1] === 'X' &&
+            Gameboard.getBoard()[2][2] === 'X'
+            ||
+            Gameboard.getBoard()[0][0] === 'X' &&
+            Gameboard.getBoard()[1][0] === 'X' &&
+            Gameboard.getBoard()[2][0] === 'X'
+            ||
+            Gameboard.getBoard()[0][1] === 'X' &&
+            Gameboard.getBoard()[1][1] === 'X' &&
+            Gameboard.getBoard()[2][1] === 'X'
+            ||
+            Gameboard.getBoard()[0][2] === 'X' &&
+            Gameboard.getBoard()[1][2] === 'X' &&
+            Gameboard.getBoard()[2][2] === 'X'
+            ||
+            Gameboard.getBoard()[0][0] === 'X' &&
+            Gameboard.getBoard()[1][1] === 'X' &&
+            Gameboard.getBoard()[2][2] === 'X'
+            ||
+            Gameboard.getBoard()[0][2] === 'X' &&
+            Gameboard.getBoard()[1][1] === 'X' &&
+            Gameboard.getBoard()[2][0] === 'X'
+            ||
+            // win conditions for 'O'
+            Gameboard.getBoard()[0][0] === 'O' &&
+            Gameboard.getBoard()[0][1] === 'O' &&
+            Gameboard.getBoard()[0][2] === 'O'
+            ||
+            Gameboard.getBoard()[1][0] === 'O' &&
+            Gameboard.getBoard()[1][1] === 'O' &&
+            Gameboard.getBoard()[1][2] === 'O'
+            ||
+            Gameboard.getBoard()[2][0] === 'O' &&
+            Gameboard.getBoard()[2][1] === 'O' &&
+            Gameboard.getBoard()[2][2] === 'O'
+            ||
+            Gameboard.getBoard()[0][0] === 'O' &&
+            Gameboard.getBoard()[1][0] === 'O' &&
+            Gameboard.getBoard()[2][0] === 'O'
+            ||
+            Gameboard.getBoard()[0][1] === 'O' &&
+            Gameboard.getBoard()[1][1] === 'O' &&
+            Gameboard.getBoard()[2][1] === 'O'
+            ||
+            Gameboard.getBoard()[0][2] === 'O' &&
+            Gameboard.getBoard()[1][2] === 'O' &&
+            Gameboard.getBoard()[2][2] === 'O'
+            ||
+            Gameboard.getBoard()[0][0] === 'O' &&
+            Gameboard.getBoard()[1][1] === 'O' &&
+            Gameboard.getBoard()[2][2] === 'O'
+            ||
+            Gameboard.getBoard()[0][2] === 'O' &&
+            Gameboard.getBoard()[1][1] === 'O' &&
+            Gameboard.getBoard()[2][0] === 'O'
+            ) {
+            console.log(`WINNER! ${activePlayer.symbol} has won!`);
+        } else {
+            return;
+        }
+        
     }
 
     function checkForTie() {
