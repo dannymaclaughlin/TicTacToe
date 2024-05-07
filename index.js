@@ -3,7 +3,7 @@ const Gameboard = (function () {
     const board = [
         ['', '', ''],
         ['', '', ''],
-        ['', '', ''],
+        ['X', 'X', ''],
     ];
 
     function getBoard() {
@@ -88,9 +88,13 @@ const GameController = (function () {
 
         if ( Gameboard.markSpace(row, column, symbol) ) {
             console.log(`${activePlayer.name} has selected space (${row}, ${column})`);
-            checkForWinner();
-            checkForTie();
-            switchPlayerTurn();
+            if (checkForWinner() == true) {
+                return;
+            } else if (checkForTie() == true) {
+                return;
+            } else {
+                switchPlayerTurn();
+            }
         } else {
             console.log('Invalid move. Please select another space.')
         }
@@ -167,6 +171,7 @@ const GameController = (function () {
             Gameboard.getBoard()[2][0] === 'O'
             ) {
             console.log(`WINNER! ${activePlayer.name} has won!`);
+            return true;
         } else {
             return;
         }
