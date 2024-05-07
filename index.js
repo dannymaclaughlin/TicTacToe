@@ -177,7 +177,7 @@ const GameController = (function () {
         // logic to check for a game ending in a tie
     }
 
-    function endGame() {
+    function gameOver() {
         // logic to end a game
     }
 
