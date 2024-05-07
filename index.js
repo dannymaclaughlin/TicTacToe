@@ -1,6 +1,7 @@
 // GAMEBOARD OBJECT - DIRECTLY RELATED TO THE BOARD
 const Gameboard = (function () {
     const board = [
+        // certain spots pre-marked to quickly satisfy a win condition for testing purposes. will remove later.
         ['', '', ''],
         ['', '', ''],
         ['X', 'X', ''],
@@ -89,6 +90,7 @@ const GameController = (function () {
         if ( Gameboard.markSpace(row, column, symbol) ) {
             console.log(`${activePlayer.name} has selected space (${row}, ${column})`);
             if (checkForWinner() == true) {
+                console.log(Gameboard.getBoard());
                 return;
             } else if (checkForTie() == true) {
                 return;
