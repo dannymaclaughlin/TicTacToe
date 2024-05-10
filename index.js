@@ -88,9 +88,10 @@ const GameController = (function () {
         const symbol = activePlayer.symbol;
 
         if ( Gameboard.markSpace(row, column, symbol) ) {
+            // if a space has been marked:
             console.log(`${activePlayer.name} has selected space (${row}, ${column})`);
+            // check for winner, then check for a tie, then switch player turn(if necessary)
             if (checkForWinner() == true) {
-                // console.log(Gameboard.getBoard());
                 gameOver();
                 return;
             } else if (checkForTie() == true) {
@@ -173,11 +174,11 @@ const GameController = (function () {
             Gameboard.getBoard()[1][1] === 'O' &&
             Gameboard.getBoard()[2][0] === 'O'
             ) {
+            console.log(`WINNER! ${activePlayer.name} has won!`);
             return true;
         } else {
-            return;
+            return false;
         }
-        
     }
 
     function checkForTie() {
@@ -187,7 +188,6 @@ const GameController = (function () {
     function gameOver() {
         // logic to end a game
         console.log(Gameboard.getBoard());
-        console.log(`WINNER! ${activePlayer.name} has won!`);
     }
 
     return { startGame, activePlayer, getPlayer, switchPlayerTurn, selectSpace };
