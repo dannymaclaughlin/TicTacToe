@@ -85,13 +85,19 @@ const GameController = (function () {
         column = column - 1;
         
         // executes isSpaceEmpty(row, column) and returns either true or false
-        // isSpaceEmpty(row, column);
-
         if (isSpaceEmpty(row, column)) {
             const symbol = activePlayer.symbol;
             Gameboard.markSpace(row, column, symbol)
             console.log(`${activePlayer.name} has selected space (${row}, ${column})`)
-            switchPlayerTurn();
+            if (checkForWinner()) {
+                // WINNER   
+                gameOver();
+            } else if (checkForTie()) {
+                // TIE
+                gameOver();
+            } else {
+                switchPlayerTurn();
+            }
         } else {
             console.log('SPACE IS NOT AVAILABLE')
         }
