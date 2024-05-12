@@ -99,7 +99,7 @@ const GameController = (function () {
                 switchPlayerTurn();
             }
         } else {
-            console.log('SPACE IS NOT AVAILABLE')
+            console.log('SPACE IS NOT AVAILABLE. MAKE ANOTHER SELECTION.')
         }
     }
 
