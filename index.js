@@ -11,13 +11,17 @@ const Gameboard = (function () {
         return board;
     }
 
+    // function markSpace(row, column, symbol) {
+    //     if ( board[row][column] === '' ) {
+    //         board[row][column] = symbol;
+    //         return true; // space was successfully marked
+    //     } else {
+    //         return false; // space is occupied
+    //     }
+    // }
+
     function markSpace(row, column, symbol) {
-        if ( board[row][column] === '' ) {
-            board[row][column] = symbol;
-            return true; // space was successfully marked
-        } else {
-            return false; // space is occupied
-        }
+        board[row][column] = symbol
     }
 
     return { getBoard, markSpace }
@@ -82,24 +86,14 @@ const GameController = (function () {
         
         // executes isSpaceEmpty(row, column) and returns either true or false
         // isSpaceEmpty(row, column);
-        
-        const symbol = activePlayer.symbol;
-        // then passes that value to:
-        if ( Gameboard.markSpace(row, column, symbol) ) {
-            // if a space has been marked:
-            console.log(`${activePlayer.name} has selected space (${row}, ${column})`);
-            // check for winner, then check for a tie(if necessary), then switch player turn(if necessary)
-            if (checkForWinner() == true) {
-                gameOver();
-                return;
-            } else if (checkForTie() == true) {
-                return;
-            } else {
-                switchPlayerTurn();
-                // [] prompt next player to make move
-            }
+
+        if (isSpaceEmpty(row, column)) {
+            const symbol = activePlayer.symbol;
+            Gameboard.markSpace(row, column, symbol)
+            console.log(`${activePlayer.name} has selected space (${row}, ${column})`)
+            switchPlayerTurn();
         } else {
-            console.log('Selected space is already occupied. Please select another space.')
+            console.log('SPACE IS NOT AVAILABLE')
         }
     }
 
@@ -189,7 +183,7 @@ const GameController = (function () {
         console.log(Gameboard.getBoard());
     }
 
-    return { startGame, activePlayer, getPlayer, switchPlayerTurn, selectSpace };
+    return { startGame, activePlayer, getPlayer, switchPlayerTurn, selectSpace, isSpaceEmpty };
 })();
 
 GameController.startGame();
