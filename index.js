@@ -80,17 +80,14 @@ const GameController = (function () {
         row = row - 1;
         column = column - 1;
         
-        // runs function to check if the space is empty
-            // if empty, it will return true
-            // if occupied, it will return false
-        isSpaceEmpty(row, column);
+        // executes isSpaceEmpty(row, column) and returns either true or false
+        // isSpaceEmpty(row, column);
         
         const symbol = activePlayer.symbol;
-
+        // then passes that value to:
         if ( Gameboard.markSpace(row, column, symbol) ) {
             // if a space has been marked:
             console.log(`${activePlayer.name} has selected space (${row}, ${column})`);
-            
             // check for winner, then check for a tie(if necessary), then switch player turn(if necessary)
             if (checkForWinner() == true) {
                 gameOver();
@@ -99,6 +96,7 @@ const GameController = (function () {
                 return;
             } else {
                 switchPlayerTurn();
+                // [] prompt next player to make move
             }
         } else {
             console.log('Selected space is already occupied. Please select another space.')
