@@ -191,6 +191,7 @@ const GameController = (function () {
 
     function gameOver() {
         // logic to end a game
+        console.log('GAME OVER!')
         console.log(Gameboard.getBoard());
     }
 
