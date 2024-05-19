@@ -4,21 +4,12 @@ const Gameboard = (function () {
         // certain spots pre-marked to quickly satisfy a win condition for testing purposes. will remove later.
         ['', '', ''],
         ['', '', ''],
-        ['X', 'X', ''],
+        ['X', '', ''],
     ];
 
     function getBoard() {
         return board;
     }
-
-    // function markSpace(row, column, symbol) {
-    //     if ( board[row][column] === '' ) {
-    //         board[row][column] = symbol;
-    //         return true; // space was successfully marked
-    //     } else {
-    //         return false; // space is occupied
-    //     }
-    // }
 
     function markSpace(row, column, symbol) {
         board[row][column] = symbol
@@ -180,8 +171,22 @@ const GameController = (function () {
         }
     }
 
-    function checkForTie() {
+    function checkForTie(row, column) {
         // logic to check for a game ending in a tie
+        if (checkForWinner()) {
+            return false;
+        }
+
+        for (let row = 0; row < 3; row++) {
+            for (let column = 0; column < 3; column++) {
+                if (isSpaceEmpty(row, column)) {
+                    return false;
+                }
+            }
+        }
+
+        console.log('TIE!!!')
+        return true;
     }
 
     function gameOver() {
