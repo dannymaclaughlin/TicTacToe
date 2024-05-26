@@ -1,10 +1,10 @@
 // GAMEBOARD OBJECT - DIRECTLY RELATED TO THE BOARD
-const Gameboard = (function () {
+const Gameboard = (function() {
     const board = [
         // certain spots pre-marked to quickly satisfy a win condition for testing purposes. will remove later.
-        ['', '', ''],
-        ['', '', ''],
-        ['X', '', ''],
+        ['O', '', 'O'],
+        ['X', 'X', 'O'],
+        ['X', 'O', 'X'],
     ];
 
     function getBoard() {
@@ -15,11 +15,11 @@ const Gameboard = (function () {
         board[row][column] = symbol
     }
 
-    return { getBoard, markSpace }
+    return { getBoard, markSpace, }
 })();
 
 // GAMECONTROLLER - OBJECT TO CONTROL THE FLOW OF THE GAME
-const GameController = (function () {
+const GameController = (function() {
     // player objects
     const players = [
         {
@@ -196,6 +196,10 @@ const GameController = (function () {
     }
 
     return { startGame, activePlayer, getPlayer, switchPlayerTurn, selectSpace, isSpaceEmpty };
+})();
+
+const DisplayLogic = (function() {
+    
 })();
 
 GameController.startGame();
