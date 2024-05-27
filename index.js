@@ -199,7 +199,20 @@ const GameController = (function() {
 })();
 
 const DisplayLogic = (function() {
-    
+    function renderBoardContents(row, column) {
+        const boardspaces = document.querySelectorAll('.boardspace');
+
+        let index = 0;
+        let board = Gameboard.getBoard();
+        for (let row = 0; row < board.length; row++) {
+            for (let column = 0; column < board[row].length; column++) {
+                index++;
+                console.log(`[${row}][${column}]`);
+            }
+        }
+    }
+
+    return { renderBoardContents }
 })();
 
 GameController.startGame();
