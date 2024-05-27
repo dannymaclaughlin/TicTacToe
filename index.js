@@ -2,9 +2,9 @@
 const Gameboard = (function() {
     const board = [
         // certain spots pre-marked to quickly satisfy a win condition for testing purposes. will remove later.
-        ['O', '', 'O'],
-        ['X', 'X', 'O'],
-        ['X', 'O', 'X'],
+        ['', '', ''],
+        ['', '', ''],
+        ['', '', ''],
     ];
 
     function getBoard() {
@@ -201,12 +201,15 @@ const GameController = (function() {
 const DisplayLogic = (function() {
     function renderBoardContents(row, column) {
         const boardspaces = document.querySelectorAll('.boardspace');
+        for (let boardspace = 0; boardspace < boardspaces.length; boardspace++) {
+            console.log(`this is html boardspace ${boardspace}`)
+        }
 
-        let index = 0;
+        // let index = 0;
         let board = Gameboard.getBoard();
         for (let row = 0; row < board.length; row++) {
             for (let column = 0; column < board[row].length; column++) {
-                index++;
+                // index++;
                 console.log(`[${row}][${column}]`);
             }
         }
