@@ -201,10 +201,13 @@ const GameController = (function() {
 const DisplayLogic = (function() {
     function renderBoardContents(row, column) {
         const boardspaces = document.querySelectorAll('.boardspace');
+        
+        // loops through each boardspace in html file
         for (let boardspace = 0; boardspace < boardspaces.length; boardspace++) {
             console.log(`this is html boardspace ${boardspace}`)
         }
 
+        // loops through each array element in the board array
         // let index = 0;
         let board = Gameboard.getBoard();
         for (let row = 0; row < board.length; row++) {
