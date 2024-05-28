@@ -2,20 +2,24 @@
 const Gameboard = (function() {
     const board = [
         // certain spots pre-marked to quickly satisfy a win condition for testing purposes. will remove later.
-        ['', '', ''],
-        ['', '', ''],
-        ['', '', ''],
+        ['X', 'O', 'O'],
+        ['O', 'X', ''],
+        ['X', '', 'X'],
     ];
 
     function getBoard() {
         return board;
     }
 
+    function getArrayElement(row, column) {
+        return board[row][column];
+    }
+
     function markSpace(row, column, symbol) {
         board[row][column] = symbol
     }
 
-    return { getBoard, markSpace, }
+    return { getBoard, markSpace, getArrayElement }
 })();
 
 // GAMECONTROLLER - OBJECT TO CONTROL THE FLOW OF THE GAME
@@ -199,7 +203,11 @@ const GameController = (function() {
 })();
 
 const DisplayLogic = (function() {
-    function renderBoardContents(row, column) {
+    function getArrayElement(row, column) {
+        return Gameboard.getArrayElement(row, column);
+    }
+    
+    function renderBoardArray(row, column) {
         const boardspaces = document.querySelectorAll('.boardspace');
 
         // loops through each array element in the board array
@@ -208,7 +216,7 @@ const DisplayLogic = (function() {
         for (let row = 0; row < board.length; row++) {
             for (let column = 0; column < board[row].length; column++) {
                 for (let boardspace = boardspaceStart; boardspace < boardspaces.length; boardspace++) {
-                    console.log(`this is html boardspace ${boardspace} at [${row}][${column}]`)
+                    console.log(`boardspace ${boardspace} is marked by ${getArrayElement(row, column)} at [${row}][${column}]`)
                     boardspaceStart = boardspace +1;
                     break; // breaks out of this inner loop after one iteration
                 }
@@ -216,7 +224,7 @@ const DisplayLogic = (function() {
         }
     }
 
-    return { renderBoardContents }
+    return { renderBoardArray, getArrayElement }
 })();
 
 GameController.startGame();
