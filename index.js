@@ -203,12 +203,13 @@ const GameController = (function() {
 })();
 
 const DisplayLogic = (function() {
+    // returns the gameboard array's element(string/symbol) at the specified row and column
     function getArrayElement(row, column) {
         return Gameboard.getArrayElement(row, column);
     }
     
     function renderBoardArray(row, column) {
-        const boardspaces = document.querySelectorAll('.boardspace');
+        const boardspaces = document.querySelectorAll('.boardspace'); // selects the all of the .boardspace elements in html file
 
         // loops through each array element in the board array
         let board = Gameboard.getBoard();
@@ -217,6 +218,9 @@ const DisplayLogic = (function() {
             for (let column = 0; column < board[row].length; column++) {
                 for (let boardspace = boardspaceStart; boardspace < boardspaces.length; boardspace++) {
                     console.log(`boardspace ${boardspace} is marked by ${getArrayElement(row, column)} at [${row}][${column}]`)
+
+                    boardspaces[boardspace].innerText = `${getArrayElement(row, column)}`;
+
                     boardspaceStart = boardspace +1;
                     break; // breaks out of this inner loop after one iteration
                 }
