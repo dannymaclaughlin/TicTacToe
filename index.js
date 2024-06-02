@@ -1,10 +1,15 @@
 // GAMEBOARD OBJECT - DIRECTLY RELATED TO THE BOARD
 const Gameboard = (function() {
     const board = [
-        // certain spots pre-marked to quickly satisfy a win condition for testing purposes. will remove later.
-        ['X', 'O', 'O'],
-        ['O', 'X', ''],
-        ['X', '', 'X'],
+        ['', '', ''],
+        ['', '', ''],
+        ['', '', ''],
+
+        // test array. certain spots pre-marked to quickly satisfy a win condition for testing purposes—will remove later.
+        // ['X', 'O', 'O'],
+        // ['O', 'X', ''],
+        // ['X', '', 'X'],
+
     ];
 
     function getBoard() {
