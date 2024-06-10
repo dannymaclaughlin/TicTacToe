@@ -12,13 +12,13 @@ html, body {
     font-family: helvetica, sans-serif;
 }
 
-/* .red-border {
+.red-border {
     border: 2px solid red;
 }
 
 .blue-border {
     border: 2px solid blue;
-} */
+}
 
 .mainContent {
     height: 100%;
@@ -52,6 +52,19 @@ html, body {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+}
+
+.starting-game-message,
+.current-player-message {
+    height: 3em;
+    width: 20em;
+    font-size: 2em;
+    font-weight: bold;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #gameboard {
@@ -63,8 +76,8 @@ html, body {
 }
 
 .boardspace {
-    height: 200px;
-    width: 200px;
+    height: 1.8em;
+    width: 1.8em;
     background-color: lightgray;
     border: 8px solid black;
     font-size: 5em;

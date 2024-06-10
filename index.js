@@ -64,7 +64,11 @@ const GameController = (function() {
 
     function startGame() {
         console.log('Starting a new game of Tic Tac Toe...')
+        let startingGameMessage = document.querySelector('.starting-game-message');
+        startingGameMessage.innerText = 'Starting a new game of Tic Tac Toe...';
         console.log(`${activePlayer.name}, select a space.`)
+        let currentPlayerMessage = document.querySelector('.current-player-message');
+        currentPlayerMessage.innerText = `${activePlayer.name}, select a space.`
         console.log(Gameboard.getBoard());
     }
 
@@ -89,6 +93,7 @@ const GameController = (function() {
             const symbol = activePlayer.symbol;
             Gameboard.markSpace(row, column, symbol)
             console.log(`${activePlayer.name} has selected space (${row}, ${column})`)
+            DisplayLogic.renderBoardArray();
             if (checkForWinner()) {
                 // WINNER   
                 gameOver();
