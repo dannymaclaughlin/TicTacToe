@@ -29,6 +29,9 @@ const Gameboard = (function() {
 
 // GAMECONTROLLER - OBJECT TO CONTROL THE FLOW OF THE GAME
 const GameController = (function() {
+    let startingGameMessage = document.querySelector('.starting-game-message');
+    let currentPlayerMessage = document.querySelector('.current-player-message');
+    
     // player objects
     const players = [
         {
@@ -49,10 +52,14 @@ const GameController = (function() {
         if (activePlayer === players[0]) {
             activePlayer = players[1];
             console.log(`${activePlayer.name}, select a space.`);
+            currentPlayerMessage.innerText = `${activePlayer.name}, select a space.`
+            startingGameMessage.innerText = '';
             console.log(Gameboard.getBoard());
         } else {
             activePlayer = players[0];
             console.log(`${activePlayer.name}, select a space.`);
+            currentPlayerMessage.innerText = `${activePlayer.name}, select a space.`
+            startingGameMessage.innerText = '';
             console.log(Gameboard.getBoard());
         }
     }
@@ -64,10 +71,8 @@ const GameController = (function() {
 
     function startGame() {
         console.log('Starting a new game of Tic Tac Toe...')
-        let startingGameMessage = document.querySelector('.starting-game-message');
         startingGameMessage.innerText = 'Starting a new game of Tic Tac Toe...';
         console.log(`${activePlayer.name}, select a space.`)
-        let currentPlayerMessage = document.querySelector('.current-player-message');
         currentPlayerMessage.innerText = `${activePlayer.name}, select a space.`
         console.log(Gameboard.getBoard());
     }
