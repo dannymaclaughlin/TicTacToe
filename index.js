@@ -219,7 +219,22 @@ const GameController = (function() {
         console.log(Gameboard.getBoard());
     }
 
-    return { startGame, activePlayer, getPlayer, switchPlayerTurn, selectSpace, isSpaceEmpty };
+    function addClickListener(row, column) {
+        let buttons = document.querySelectorAll('.boardspace')
+
+        buttons.forEach((button) => {
+            button.addEventListener('click', function() {
+                selectSpace(row, column);
+                console.log('TEST')
+            })
+        })
+    }
+
+    function setupEventListeners() {
+
+    };
+
+    return { startGame, activePlayer, getPlayer, switchPlayerTurn, selectSpace, isSpaceEmpty, addClickListener };
 })();
 
 const DisplayLogic = (function() {
