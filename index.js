@@ -71,6 +71,16 @@ const GameController = (function() {
         return activePlayer;
     }
 
+    function setupEventListeners() {
+        let boardspaces = document.querySelectorAll('.boardspace');
+
+        boardspaces.forEach((space) => {
+            space.addEventListener('click', function() {
+                console.log('a button has been clicked!')
+            })
+        })
+    };
+
     function startGame() {
         // new game starting message
         console.log('Starting a new game of Tic Tac Toe...')
@@ -80,6 +90,7 @@ const GameController = (function() {
         currentPlayerMessage.innerText = `${activePlayer.name}, select a space.`
         // logs the board at the start of the game — will be removed.
         console.log(Gameboard.getBoard());
+        setupEventListeners();
     }
 
     // function to check if space is empty
@@ -219,22 +230,7 @@ const GameController = (function() {
         console.log(Gameboard.getBoard());
     }
 
-    // function addClickListener(row, column) {
-    //     let buttons = document.querySelectorAll('.boardspace')
-
-    //     buttons.forEach((button) => {
-    //         button.addEventListener('click', function() {
-    //             selectSpace(row, column);
-    //             console.log('TEST')
-    //         })
-    //     })
-    // }
-
-    function setupEventListeners() {
-
-    };
-
-    return { startGame, activePlayer, getPlayer, switchPlayerTurn, selectSpace, isSpaceEmpty, addClickListener };
+    return { startGame, activePlayer, getPlayer, switchPlayerTurn, selectSpace, isSpaceEmpty };
 })();
 
 const DisplayLogic = (function() {
