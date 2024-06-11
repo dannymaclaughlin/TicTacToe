@@ -53,12 +53,14 @@ const GameController = (function() {
             activePlayer = players[1];
             console.log(`${activePlayer.name}, select a space.`);
             currentPlayerMessage.innerText = `${activePlayer.name}, select a space.`
+            // sets startingGameMessage to an empty string once it switches player turn
             startingGameMessage.innerText = '';
             console.log(Gameboard.getBoard());
         } else {
             activePlayer = players[0];
             console.log(`${activePlayer.name}, select a space.`);
             currentPlayerMessage.innerText = `${activePlayer.name}, select a space.`
+            // sets startingGameMessage to an empty string once it switches player turn
             startingGameMessage.innerText = '';
             console.log(Gameboard.getBoard());
         }
@@ -70,10 +72,13 @@ const GameController = (function() {
     }
 
     function startGame() {
+        // new game starting message
         console.log('Starting a new game of Tic Tac Toe...')
         startingGameMessage.innerText = 'Starting a new game of Tic Tac Toe...';
+        // new game current player message
         console.log(`${activePlayer.name}, select a space.`)
         currentPlayerMessage.innerText = `${activePlayer.name}, select a space.`
+        // logs the board at the start of the game — will be removed.
         console.log(Gameboard.getBoard());
     }
 
@@ -232,7 +237,8 @@ const DisplayLogic = (function() {
         for (let row = 0; row < board.length; row++) {
             for (let column = 0; column < board[row].length; column++) {
                 for (let boardspace = boardspaceStart; boardspace < boardspaces.length; boardspace++) {
-                    console.log(`boardspace ${boardspace} is marked by ${getArrayElement(row, column)} at [${row}][${column}]`)
+                    // console.log used for testing — will be removed.
+                    // console.log(`boardspace ${boardspace} is marked by ${getArrayElement(row, column)} at [${row}][${column}]`)
 
                     boardspaces[boardspace].innerText = `${getArrayElement(row, column)}`;
 
