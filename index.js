@@ -219,16 +219,16 @@ const GameController = (function() {
         console.log(Gameboard.getBoard());
     }
 
-    function addClickListener(row, column) {
-        let buttons = document.querySelectorAll('.boardspace')
+    // function addClickListener(row, column) {
+    //     let buttons = document.querySelectorAll('.boardspace')
 
-        buttons.forEach((button) => {
-            button.addEventListener('click', function() {
-                selectSpace(row, column);
-                console.log('TEST')
-            })
-        })
-    }
+    //     buttons.forEach((button) => {
+    //         button.addEventListener('click', function() {
+    //             selectSpace(row, column);
+    //             console.log('TEST')
+    //         })
+    //     })
+    // }
 
     function setupEventListeners() {
 
