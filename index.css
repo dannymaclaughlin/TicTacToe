@@ -82,6 +82,7 @@ html, body {
     background-color: lightgray;
     border: 8px solid black;
     font-size: 5em;
+    font-weight: bolder;
     display: flex;
     justify-content: center;
     align-items: center;
