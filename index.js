@@ -75,8 +75,19 @@ const GameController = (function() {
         let boardspaces = document.querySelectorAll('.boardspace');
 
         boardspaces.forEach((space) => {
-            space.addEventListener('click', function() {
-                console.log('a button has been clicked!')
+            space.addEventListener('click', function(event) {
+                // Array.from() makes an array from the boardspaces nodelist
+                // index.Of(event.target) gets the index of the event's target(which is the boardspace being clicked on)
+                let index = Array.from(boardspaces).indexOf(event.target);
+                // Math.floor rounds down and returns the whole number less than or equal to the given number
+                // then adds 1 to accound for 0 base indexing
+                let row = Math.floor(index / 3) + 1;
+                // modulo returns the remainder of the index number modulo 3 then adds 1 again to account for 0 basex indexing
+                let column = (index % 3) + 1;
+                console.log(`row: ${row}, column ${column}`)
+
+                // row and column can now be used with selectSpace(row, column)'s parameters
+                selectSpace(row, column);
             })
         })
     };
@@ -113,7 +124,7 @@ const GameController = (function() {
         if (isSpaceEmpty(row, column)) {
             const symbol = activePlayer.symbol;
             Gameboard.markSpace(row, column, symbol)
-            console.log(`${activePlayer.name} has selected space (${row}, ${column})`)
+            console.log(`${activePlayer.name} has selected board array element [${row}, ${column}]`)
             DisplayLogic.renderBoardArray();
             if (checkForWinner()) {
                 // WINNER   
