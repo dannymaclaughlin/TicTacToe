@@ -137,6 +137,7 @@ const GameController = (function() {
             }
         } else {
             console.log('SPACE IS NOT AVAILABLE. MAKE ANOTHER SELECTION.')
+            startingGameMessage.innerText = 'Space is already occupied.'
         }
     }
 
