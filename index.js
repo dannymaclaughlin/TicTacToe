@@ -241,7 +241,6 @@ const GameController = (function() {
         // logic to end a game
         console.log('GAME OVER!')
         console.log(Gameboard.getBoard());
-        space.removeEventListener('click')
     }
 
     return { startGame, activePlayer, getPlayer, switchPlayerTurn, selectSpace, isSpaceEmpty };
