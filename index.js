@@ -76,15 +76,9 @@ const GameController = (function() {
 
         boardspaces.forEach((space, index) => {
             space.addEventListener('click', function(event) {
-                // Array.from() makes an array from the boardspaces nodelist
-                // index.Of(event.target) gets the index of the event's target(which is the boardspace being clicked on)
-                // let index = Array.from(boardspaces).indexOf(event.target);
-                // Math.floor rounds down and returns the whole number less than or equal to the given number
+                let row = Math.floor(index / 3) + 1; // Math.floor rounds down and returns the whole number less than or equal to the given number. we then add 1 to accound for 0 base indexing.
+                let column = (index % 3) + 1; // modulo returns the remainder of the index number modulo 3 then adds 1 again to account for 0 basex indexing
                 
-                // then adds 1 to accound for 0 base indexing
-                let row = Math.floor(index / 3) + 1;
-                // modulo returns the remainder of the index number modulo 3 then adds 1 again to account for 0 basex indexing
-                let column = (index % 3) + 1;
                 console.log(`row: ${row}, column ${column}`)
 
                 // row and column can now be used with selectSpace(row, column)'s parameters
