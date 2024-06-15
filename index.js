@@ -74,12 +74,13 @@ const GameController = (function() {
     function setupEventListeners() {
         let boardspaces = document.querySelectorAll('.boardspace');
 
-        boardspaces.forEach((space) => {
+        boardspaces.forEach((space, index) => {
             space.addEventListener('click', function(event) {
                 // Array.from() makes an array from the boardspaces nodelist
                 // index.Of(event.target) gets the index of the event's target(which is the boardspace being clicked on)
-                let index = Array.from(boardspaces).indexOf(event.target);
+                // let index = Array.from(boardspaces).indexOf(event.target);
                 // Math.floor rounds down and returns the whole number less than or equal to the given number
+                
                 // then adds 1 to accound for 0 base indexing
                 let row = Math.floor(index / 3) + 1;
                 // modulo returns the remainder of the index number modulo 3 then adds 1 again to account for 0 basex indexing
@@ -240,6 +241,7 @@ const GameController = (function() {
         // logic to end a game
         console.log('GAME OVER!')
         console.log(Gameboard.getBoard());
+        space.removeEventListener('click')
     }
 
     return { startGame, activePlayer, getPlayer, switchPlayerTurn, selectSpace, isSpaceEmpty };
