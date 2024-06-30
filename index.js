@@ -207,6 +207,7 @@ const GameController = (function() {
             Gameboard.getBoard()[2][0] === 'O'
             ) {
             console.log(`WINNER! ${activePlayer.name} has won!`);
+            bottomMessage.innerText = `WINNER! ${activePlayer.name} has won!`;
             return true;
         } else {
             return false;
@@ -233,6 +234,7 @@ const GameController = (function() {
 
     function gameOver() {
         // logic to end a game
+        topMessage.innerText = 'GAME OVER';
         console.log('GAME OVER!')
         console.log(Gameboard.getBoard());
     }
