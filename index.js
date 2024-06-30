@@ -29,8 +29,8 @@ const Gameboard = (function() {
 
 // GAMECONTROLLER - OBJECT TO CONTROL THE FLOW OF THE GAME
 const GameController = (function() {
-    let startingGameMessage = document.querySelector('.starting-game-message');
-    let currentPlayerMessage = document.querySelector('.current-player-message');
+    let topMessage = document.querySelector('.top-message');
+    let bottomMessage = document.querySelector('.bottom-message');
     
     // player objects
     const players = [
@@ -52,16 +52,16 @@ const GameController = (function() {
         if (activePlayer === players[0]) {
             activePlayer = players[1];
             console.log(`${activePlayer.name}, select a space.`);
-            currentPlayerMessage.innerText = `${activePlayer.name}, select a space.`
-            // sets startingGameMessage to an empty string once it switches player turn
-            startingGameMessage.innerText = '';
+            bottomMessage.innerText = `${activePlayer.name}, select a space.`
+            // sets topMessage to an empty string once it switches player turn
+            topMessage.innerText = '';
             console.log(Gameboard.getBoard());
         } else {
             activePlayer = players[0];
             console.log(`${activePlayer.name}, select a space.`);
-            currentPlayerMessage.innerText = `${activePlayer.name}, select a space.`
-            // sets startingGameMessage to an empty string once it switches player turn
-            startingGameMessage.innerText = '';
+            bottomMessage.innerText = `${activePlayer.name}, select a space.`
+            // sets topMessage to an empty string once it switches player turn
+            topMessage.innerText = '';
             console.log(Gameboard.getBoard());
         }
     }
@@ -90,10 +90,10 @@ const GameController = (function() {
     function startGame() {
         // new game starting message
         console.log('Starting a new game of Tic Tac Toe...')
-        startingGameMessage.innerText = 'Starting a new game of Tic Tac Toe...';
+        topMessage.innerText = 'Starting a new game of Tic Tac Toe...';
         // new game current player message
         console.log(`${activePlayer.name}, select a space.`)
-        currentPlayerMessage.innerText = `${activePlayer.name}, select a space.`
+        bottomMessage.innerText = `${activePlayer.name}, select a space.`
         // logs the board at the start of the game — will be removed.
         console.log(Gameboard.getBoard());
         setupEventListeners();
@@ -132,7 +132,7 @@ const GameController = (function() {
             }
         } else {
             console.log('SPACE IS NOT AVAILABLE. MAKE ANOTHER SELECTION.')
-            startingGameMessage.innerText = 'Space is already occupied.'
+            topMessage.innerText = 'Space is already occupied.'
         }
     }
 

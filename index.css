@@ -12,13 +12,13 @@ html, body {
     font-family: helvetica, sans-serif;
 }
 
-.red-border {
+/* .red-border {
     border: 2px solid red;
 }
 
 .blue-border {
     border: 2px solid blue;
-}
+} */
 
 .mainContent {
     height: 100%;
@@ -55,8 +55,8 @@ html, body {
     flex-direction: column;
 }
 
-.starting-game-message,
-.current-player-message {
+.top-message,
+.bottom-message {
     height: 2em;
     width: 20em;
     font-size: 2em;
