@@ -76,6 +76,11 @@ html, body {
     padding-top: 3em;
 }
 
+.startButton {
+    padding: 1em;
+    font-size: 25px;
+}
+
 .boardspace {
     height: 1.8em;
     width: 1.8em;
