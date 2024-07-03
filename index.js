@@ -73,18 +73,32 @@ const GameController = (function() {
 
     function setupEventListeners() {
         let boardspaces = document.querySelectorAll('.boardspace');
+        let handlers = [];
 
         boardspaces.forEach((space, index) => {
-            space.addEventListener('click', function(event) {
-                let row = Math.floor(index / 3) + 1; // Math.floor rounds down and returns the whole number less than or equal to the given number. we then add 1 to accound for 0 base indexing.
-                let column = (index % 3) + 1; // modulo returns the remainder of the index number modulo 3 then adds 1 again to account for 0 basex indexing
-                
+            function handleClick(event) {
+                let row = Math.floor(index / 3) + 1;
+                let column = (index % 3) + 1;
+
                 console.log(`row: ${row}, column ${column}`)
 
-                // row and column can now be used with selectSpace(row, column)'s parameters
                 selectSpace(row, column);
-            })
+
+                if (checkForWinner()) {
+                    removeEventListener();
+                }
+            }
+
+            handlers.push( {space, handleClick} )
+
+            space.addEventListener('click', handleClick);
         })
+
+        function removeEventListener() {
+            handlers.forEach(( {space, handleClick} ) => {
+                space.removeEventListener('click', handleClick)
+            })
+        }
     };
 
     function startGame() {
@@ -96,6 +110,7 @@ const GameController = (function() {
         bottomMessage.innerText = `${activePlayer.name}, select a space.`
         // logs the board at the start of the game — will be removed.
         console.log(Gameboard.getBoard());
+
         setupEventListeners();
     }
 
