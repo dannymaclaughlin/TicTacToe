@@ -284,7 +284,21 @@ const DisplayLogic = (function() {
         }
     }
 
-    return { renderBoardArray, getArrayElement }
+    function displayStartButton() {
+        let topMessage = document.querySelector('.top-message');
+        let startButton = document.createElement('button');
+        startButton.classList.add('startButton');
+        startButton.textContent = 'Start Button';
+        startButton.addEventListener('click', function() {
+            GameController.startGame();
+        })
+
+        topMessage.appendChild(startButton);
+    }
+
+
+    return { renderBoardArray, getArrayElement, displayStartButton }
 })();
 
-GameController.startGame();
+// GameController.startGame();
+DisplayLogic.displayStartButton();
