@@ -4,12 +4,6 @@ const Gameboard = (function() {
         ['', '', ''],
         ['', '', ''],
         ['', '', ''],
-
-        // test array. certain spots pre-marked to quickly satisfy a win condition for testing purposes—will remove later.
-        // ['X', 'O', 'O'],
-        // ['O', 'X', ''],
-        // ['X', '', 'X'],
-
     ];
 
     function getBoard() {
@@ -24,13 +18,17 @@ const Gameboard = (function() {
         board[row][column] = symbol
     }
 
-    return { getBoard, markSpace, getArrayElement }
+    // function clearSpace(row, column) {
+    //     board[row][column] = '';
+    // }
+    return { getBoard, getArrayElement, markSpace }
 })();
 
 // GAMECONTROLLER - OBJECT TO CONTROL THE FLOW OF THE GAME
 const GameController = (function() {
     let topMessage = document.querySelector('.top-message');
     let bottomMessage = document.querySelector('.bottom-message');
+    let board = Gameboard.getBoard();
     
     // player objects
     const players = [
@@ -133,7 +131,7 @@ const GameController = (function() {
         // executes isSpaceEmpty(row, column) and returns either true or false
         if (isSpaceEmpty(row, column)) {
             const symbol = activePlayer.symbol;
-            Gameboard.markSpace(row, column, symbol)
+            Gameboard.markSpace(row, column, symbol);
             console.log(`${activePlayer.name} has selected board array element [${row}, ${column}]`)
             DisplayLogic.renderBoardArray();
             if (checkForWinner()) {
@@ -149,6 +147,10 @@ const GameController = (function() {
             console.log('SPACE IS NOT AVAILABLE. MAKE ANOTHER SELECTION.')
             topMessage.innerText = 'Space is already occupied.'
         }
+    }
+
+    function clearBoard(row, column) {
+        // function to reset the elements of the board array to empty strings
     }
 
     function checkForWinner() {
@@ -252,9 +254,10 @@ const GameController = (function() {
         topMessage.innerText = 'GAME OVER';
         console.log('GAME OVER!')
         console.log(Gameboard.getBoard());
+        DisplayLogic.displayRestartButton();
     }
 
-    return { startGame, activePlayer, getPlayer, switchPlayerTurn, selectSpace, isSpaceEmpty };
+    return { startGame, activePlayer, getPlayer, switchPlayerTurn, selectSpace, isSpaceEmpty, clearBoard };
 })();
 
 const DisplayLogic = (function() {
@@ -288,7 +291,7 @@ const DisplayLogic = (function() {
         let topMessage = document.querySelector('.top-message');
         let startButton = document.createElement('button');
         startButton.classList.add('startButton');
-        startButton.textContent = 'Start Button';
+        startButton.textContent = 'Start';
         startButton.addEventListener('click', function() {
             GameController.startGame();
         })
@@ -296,9 +299,21 @@ const DisplayLogic = (function() {
         topMessage.appendChild(startButton);
     }
 
+    function displayRestartButton() {
+        let restartButtonArea = document.querySelector('.restart-button');
+        let restartButton = document.createElement('button');
+        restartButton.classList.add('restartButton');
+        restartButton.textContent = 'Restart';
+        restartButton.addEventListener('click', function(row, column) {
+            // function that runs when the restart button is clicked
+            GameController.clearBoard();
+        })
 
-    return { renderBoardArray, getArrayElement, displayStartButton }
+        restartButtonArea.appendChild(restartButton);
+    }
+
+
+    return { renderBoardArray, getArrayElement, displayStartButton, displayRestartButton }
 })();
 
-// GameController.startGame();
 DisplayLogic.displayStartButton();
