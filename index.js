@@ -151,6 +151,12 @@ const GameController = (function() {
 
     function clearBoard(row, column) {
         // function to reset the elements of the board array to empty strings
+        let boardspaces = document.querySelectorAll('.boardspace');
+
+        for (let i = 0; i < boardspaces.length; i++) {
+            // console.log('test');
+        }
+
     }
 
     function checkForWinner() {
