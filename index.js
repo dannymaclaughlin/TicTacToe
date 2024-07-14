@@ -10,6 +10,14 @@ const Gameboard = (function() {
         return board;
     }
 
+    function getBoardElements() {
+        for (let i = 0; i < board.length; i++) {
+            for (let j = 0; j < board[i].length; j++) {
+                console.log(board[i][j]);
+            }
+        }
+    }
+
     function getArrayElement(row, column) {
         return board[row][column];
     }
@@ -18,10 +26,7 @@ const Gameboard = (function() {
         board[row][column] = symbol
     }
 
-    // function clearSpace(row, column) {
-    //     board[row][column] = '';
-    // }
-    return { getBoard, getArrayElement, markSpace }
+    return { getBoard, getBoardElements, getArrayElement, markSpace }
 })();
 
 // GAMECONTROLLER - OBJECT TO CONTROL THE FLOW OF THE GAME
@@ -151,16 +156,8 @@ const GameController = (function() {
 
     function clearBoard(row, column) {
         // function to reset the elements of the board array to empty strings
-        let boardspaces = document.querySelectorAll('.boardspace');
-
-        boardspaces.forEach((space) => {
-            // console.log(space.innerText);
-            
-
-            space.innerText = '';
-            console.log(space.innerText);
-        })
-
+        let boardspaces = Gameboard.getBoardElements();
+        console.log(boardspaces);
     }
 
     function checkForWinner() {
