@@ -153,9 +153,13 @@ const GameController = (function() {
         // function to reset the elements of the board array to empty strings
         let boardspaces = document.querySelectorAll('.boardspace');
 
-        for (let i = 0; i < boardspaces.length; i++) {
-            // console.log('test');
-        }
+        boardspaces.forEach((space) => {
+            // console.log(space.innerText);
+            
+
+            space.innerText = '';
+            console.log(space.innerText);
+        })
 
     }
 
@@ -313,6 +317,7 @@ const DisplayLogic = (function() {
         restartButton.addEventListener('click', function(row, column) {
             // function that runs when the restart button is clicked
             GameController.clearBoard();
+            displayStartButton();
         })
 
         restartButtonArea.appendChild(restartButton);
