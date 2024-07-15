@@ -316,6 +316,7 @@ const DisplayLogic = (function() {
             GameController.clearBoard();
             renderBoardArray();
             GameController.startGame();
+            restartButton.remove();
         })
 
         restartButtonArea.appendChild(restartButton);
