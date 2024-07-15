@@ -8,23 +8,23 @@ const Gameboard = (function() {
 
     function getBoard() {
         return board;
-    }
+    };
 
     function getBoardElements() {
         for (let i = 0; i < board.length; i++) {
             for (let j = 0; j < board[i].length; j++) {
-                console.log(board[i][j]);
-            }
-        }
-    }
+                board[i][j] = '';
+            };
+        };
+    };
 
     function getArrayElement(row, column) {
         return board[row][column];
-    }
+    };
 
     function markSpace(row, column, symbol) {
         board[row][column] = symbol
-    }
+    };
 
     return { getBoard, getBoardElements, getArrayElement, markSpace }
 })();
@@ -314,7 +314,8 @@ const DisplayLogic = (function() {
         restartButton.addEventListener('click', function(row, column) {
             // function that runs when the restart button is clicked
             GameController.clearBoard();
-            displayStartButton();
+            renderBoardArray();
+            GameController.startGame();
         })
 
         restartButtonArea.appendChild(restartButton);
