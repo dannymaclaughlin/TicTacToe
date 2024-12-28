@@ -12,14 +12,6 @@ html, body {
     font-family: helvetica, sans-serif;
 }
 
-.red-border {
-    border: 2px solid red;
-}
-
-.blue-border {
-    border: 2px solid blue;
-}
-
 .mainContent {
     height: 100%;
     width: 100%;
@@ -29,7 +21,6 @@ html, body {
     justify-items: center;
     background-color: lightgray;
     box-sizing: border-box;
-    border: 5px solid green;
 }
 
 .header-section {
@@ -70,7 +61,6 @@ html, body {
 }
 
 #gameboard {
-    /* border: 2px solid red; */
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     width: fit-content;
